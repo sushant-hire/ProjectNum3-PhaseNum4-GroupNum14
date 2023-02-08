@@ -1,0 +1,33 @@
+.MiddleHomeTopBoxContainer {
+  border-bottom: 1px solid gainsboro;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  /* backdrop-filter: blur(0.8rem); */
+}
+
+.MiddleHomeTopBoxHeadingContainer {
+  padding-left: 1rem;
+  text-align: left;
+  margin-top: 0.8rem;
+  height: 1.4rem;
+}
+
+.MiddleHomeTopBoxButtonContainer {
+  padding: 1.2rem;
+  width: 18rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+
+  z-index: 100;
+  /* backdrop-filter: blur(0.1rem); */
+}
+
+.MiddleHomeTopBoxButtonContainer:hover {
+  background-color: gainsboro;
+}
