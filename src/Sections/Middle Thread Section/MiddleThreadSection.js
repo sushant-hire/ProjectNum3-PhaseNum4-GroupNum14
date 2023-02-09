@@ -9,6 +9,7 @@ import CommentControl from "../../Molecules/Comment Control/CommentControl";
 import RetweetControl from "../../Molecules/Retweet Control/RetweetControl";
 import LikeControl from "../../Molecules/Like Control/LikeControl";
 import ViewControl from "../../Molecules/View Control/ViewControl";
+import UserCommentTemplate from "../../Components/User Comment Template/UserCommentTemplate";
 
 function MiddleThreadSection() {
   let matchedUserDetails = JSON.parse(localStorage.getItem("matchedUser"));
@@ -169,7 +170,7 @@ function MiddleThreadSection() {
                 </div>
               </div>
               {/* <div
-                style={{
+                style={{  
                   textAlign: "right",
                   marginTop: "0.8rem",
                   marginRight: "0.3rem",
@@ -235,6 +236,7 @@ function MiddleThreadSection() {
           </button>
         ))}
       </div>
+      {/* <UserCommentTemplate /> */}
     </div>
   );
 }

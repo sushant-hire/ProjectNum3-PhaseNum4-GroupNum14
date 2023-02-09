@@ -118,11 +118,9 @@ function SignUp() {
       } else {
         const userData = {
           id: nanoid(),
-          // UserName:
-          //   name.split(" ").join("") + Math.floor(Math.random() * 10000 + 1),
           Name: name,
-          Email: email, //or
-          Phone: phone, //or
+          Email: email, 
+          Phone: phone, 
           Password: password,
           DOB: date + " " + month + " " + year,
         };

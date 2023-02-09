@@ -41,7 +41,6 @@ function LeftHomeDialog() {
 
   function handleTweetPost() {
     let tweetText = { name: "Sushant", tweetText: tweet, tweetPic: image };
-    console.log([...tweetPost, tweetText]);
     setTweetPost([tweetText, ...tweetPost]);
     setOpen(false);
     setImage("");

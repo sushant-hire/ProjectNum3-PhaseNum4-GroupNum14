@@ -13,7 +13,7 @@ import EmojiEmotionsOutlinedIcon from "@mui/icons-material/EmojiEmotionsOutlined
 import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
-function CommentBox({handleClose}) {
+function CommentBox({ handleClose }) {
   let matchedUserDetails = JSON.parse(localStorage.getItem("matchedUser"));
 
   const [newReply, setNewReply] = useRecoilState(ReplyAtom);
@@ -46,8 +46,7 @@ function CommentBox({handleClose}) {
     setTweetRelpy("");
     setImage("");
     setMyNewReply([myReply, ...newMyReply]);
-    handleClose()
-
+    handleClose();
   }
 
   return (

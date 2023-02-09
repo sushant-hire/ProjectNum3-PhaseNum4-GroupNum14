@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 
 function MiddleProfileSection() {
   let matchedUserDetails = JSON.parse(localStorage.getItem("matchedUser"));
-  
-
   return (
     <div className={styles.ProfileMainContainer}>
       <div className={styles.ProfileHeadingContainer}>
@@ -36,8 +34,8 @@ function MiddleProfileSection() {
             border: "4px solid white",
             borderRadius: "555px",
             position: "relative",
-            top: '4.6rem',
-            right: '1rem',
+            top: "4.6rem",
+            right: "1rem",
             cursor: "pointer",
           }}
           src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31"
@@ -64,7 +62,7 @@ function MiddleProfileSection() {
             fontSize: "0.96rem",
           }}
         >
-           @{matchedUserDetails.Name}
+          @{matchedUserDetails.Name}
         </p>
         <div
           style={{

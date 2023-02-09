@@ -17,6 +17,7 @@ export const DefaultPosts = atom({
         {
           tweetText: "Never tamper with the spell.",
           tweetPic: "https://giffiles.alphacoders.com/214/214285.gif",
+          commentText: "Never tamper with the spell.",
           tweetCount: 100,
           retweetCount: 100,
           likesCount: 100,
@@ -53,6 +54,7 @@ export const DefaultPosts = atom({
           tweetText: "I have everything under control.",
           tweetPic:
             "https://media0.giphy.com/media/1Euph36tcV2KmmgGEC/giphy.gif",
+          commentText: "I have everything under control.",
           tweetCount: 200,
           retweetCount: 200,
           likesCount: 200,
@@ -89,6 +91,8 @@ export const DefaultPosts = atom({
         {
           tweetText: "With great power comes great responsibility.",
           tweetPic: "https://giffiles.alphacoders.com/155/15523.gif",
+          commentText: "With great power comes great responsibility.",
+
           tweetCount: 700,
           retweetCount: 700,
           likesCount: 900,
@@ -126,6 +130,8 @@ export const DefaultPosts = atom({
           tweetText: "Trust me, I didn't do anything.",
           tweetPic:
             "https://thumbs.gfycat.com/HelplessImpeccableGuanaco-size_restricted.gif",
+          commentText: "Trust me, I didn't do anything.",
+
           tweetCount: 400,
           retweetCount: 327,
           likesCount: 90,
@@ -163,6 +169,9 @@ export const DefaultPosts = atom({
           tweetText: "You should know, I'm a better shot when I'm pissed off.",
           tweetPic:
             "https://i.pinimg.com/originals/b0/6b/05/b06b05ba3402b9c482f900d75b18ac31.gif",
+          commentText:
+            "You should know, I'm a better shot when I'm pissed off.",
+
           tweetCount: 650,
           retweetCount: 699,
           likesCount: 900,

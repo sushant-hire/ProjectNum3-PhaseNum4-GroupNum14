@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./CommentControl.module.css";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -13,38 +13,27 @@ import PollOutlinedIcon from "@mui/icons-material/PollOutlined";
 import EmojiEmotionsOutlinedIcon from "@mui/icons-material/EmojiEmotionsOutlined";
 import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { ReplyAtom } from "../../Recoil State/Reply State/ReplyAtom";
-import { MyReplyAtom } from "../../Recoil State/Reply State/MyReplyAtom";
-import { useState, useRef } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import { UserPost } from "../../Recoil State/User Post/UserPost";
+import { useRecoilState } from "recoil";
 
 function CommentControl() {
-  let matchedUserDetails = JSON.parse(localStorage.getItem("matchedUser"));
-
-  const [newReply, setNewReply] = useRecoilState(ReplyAtom);
-  const [newMyReply, setMyNewReply] = useRecoilState(MyReplyAtom);
-  const [tweetReply, setTweetRelpy] = useState("");
+  const [open, setOpen] = React.useState(false);
+  const [comment, setComment] = useState("");
+  const [tweetPost, setTweetPost] = useRecoilState(UserPost);
   const [image, setImage] = useState(null);
   const fileInputRef = useRef(null);
-
-  function handleTweet(e) {
-    setTweetRelpy(e.target.value);
-  }
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const handleImageUpload = (event) => {
     setImage(URL.createObjectURL(event.target.files[0]));
     console.log(event.target.files[0]);
   };
-
-  const handleImageClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
   const handleClickOpen = () => {
     setOpen(true);
+  };
+  const handleImageClick = () => {
+    fileInputRef.current.click();
   };
 
   const handleClose = () => {
@@ -52,19 +41,15 @@ function CommentControl() {
   };
 
   function handleTweetPost() {
-    let myReply = {
-      name: `${matchedUserDetails.Email || matchedUserDetails.Phone}`,
-      handlerName: `@${matchedUserDetails.Name}`,
-      tweetReplyText: tweetReply,
+    let commentText = {
+      name: "Sushant",
+      commentText: comment,
       tweetPic: image,
-      profilePic:
-        "https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31",
     };
-    setNewReply([myReply, ...newReply]);
-    setTweetRelpy("");
+    setTweetPost([commentText, ...tweetPost]);
+    setOpen(false);
     setImage("");
-    setMyNewReply([myReply, ...newMyReply]);
-    console.log(newMyReply, 'This is my newest comment!')
+    setComment("");
   }
 
   return (
@@ -81,6 +66,16 @@ function CommentControl() {
           },
         }}
       >
+        <CloseRoundedIcon
+          onClick={handleClose}
+          style={{
+            position: "relative",
+            left: "0.5rem",
+            top: "0.5rem",
+            fontSize: "1.5rem",
+            cursor: "pointer",
+          }}
+        />
         <Box
           component="form"
           sx={{
@@ -94,12 +89,22 @@ function CommentControl() {
             label="What's happening?"
             multiline
             rows={8}
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
           />
         </Box>
         <DialogActions>
           <PermMediaOutlinedIcon
-            onClick={handleClose}
+            onClick={handleImageClick}
             className={styles.DialogTweetIconStyle}
+          />
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={handleImageUpload}
+            style={{ display: "none" }}
+            value=""
           />
           <GifBoxOutlinedIcon className={styles.DialogTweetIconStyle} />
           <PollOutlinedIcon className={styles.DialogTweetIconStyle} />
@@ -109,8 +114,7 @@ function CommentControl() {
 
           <button
             className={styles.DialogTweetButtonStyle}
-            buttonText="Tweet"
-            onClick={handleTweetPost}
+            // onClick={handleTweetPost}
           >
             Comment
           </button>

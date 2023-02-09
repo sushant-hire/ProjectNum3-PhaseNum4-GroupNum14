@@ -1,24 +1,16 @@
 import React from "react";
+import styles from "./UserCommentTemplate.module.css";
 import { useRecoilValue } from "recoil";
-import { useNavigate } from "react-router-dom";
 import { UserPost } from "../../Recoil State/User Post/UserPost";
-import styles from "./UserTweetTemplate.module.css";
 import CommentControl from "../../Molecules/Comment Control/CommentControl";
 import RetweetControl from "../../Molecules/Retweet Control/RetweetControl";
 import LikeControl from "../../Molecules/Like Control/LikeControl";
 import ViewControl from "../../Molecules/View Control/ViewControl";
 
-function UserTweetTemplate() {
+function UserCommentTemplate() {
   let matchedUserDetails = JSON.parse(localStorage.getItem("matchedUser"));
 
   const UserPostData = useRecoilValue(UserPost);
-  const navigate = useNavigate();
-
-  function redirectToStatus(element) {
-    // setThreadData(element);
-
-    navigate("/mystatus");
-  }
 
   return (
     <div>
@@ -62,16 +54,16 @@ function UserTweetTemplate() {
               </div>
             </div>
             {/* <div
-                style={{
-                  textAlign: "right",
-                  marginTop: "0.8rem",
-                  marginRight: "0.3rem",
-                  cursor: "pointer",
-                }}
-              >
-                {" "}
-                <MiddleHomePopover />
-              </div> */}
+                  style={{
+                    textAlign: "right",
+                    marginTop: "0.8rem",
+                    marginRight: "0.3rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  {" "}
+                  <MiddleHomePopover />
+                </div> */}
           </div>
 
           <div
@@ -84,7 +76,7 @@ function UserTweetTemplate() {
             }}
           >
             {" "}
-            {element.tweetText}
+            {element.commentText}
           </div>
           <div
             style={{
@@ -131,4 +123,4 @@ function UserTweetTemplate() {
   );
 }
 
-export default UserTweetTemplate;
+export default UserCommentTemplate;

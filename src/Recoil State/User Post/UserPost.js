@@ -4,3 +4,8 @@ export const UserPost = atom({
   key: "UserPost",
   default: [],
 });
+
+export const UserCommentPost = atom({
+  key: "UserCommentPost",
+  default: [],
+});

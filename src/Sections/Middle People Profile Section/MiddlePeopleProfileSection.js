@@ -244,7 +244,6 @@ function MiddlePeopleProfileSection() {
           <ViewControl />
         </div>
       </div>
-
       {/* <img
         style={{
           height: "7.9rem",

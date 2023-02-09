@@ -81,8 +81,8 @@ function Login() {
   }
 
   return (
-    <div>
-      <Dialog
+    <div  >
+      <Dialog className={Style.DialogContainer}
         PaperProps={{
           style: {
             borderRadius: 20,
@@ -171,7 +171,7 @@ function Login() {
                 className={Style.buttonStyleFP}
                 buttonText="Forgot Password?"
               />
-              <span>
+              <span className={Style.FooterSpan}>
                 Don't have an account?{" "}
                 <Link className={Style.FooterRouter} to="/signup">
                   {" "}
